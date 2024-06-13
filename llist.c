@@ -1,27 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "table.h"
+#include "llist.h"
 
 typedef struct Node {
-    int data;
+    ht* data;
     struct Node* next;
 } Node;
 
-Node* create_list(int p) {
+Node* create_list(ht* table) {
     Node* head = (Node*) malloc(sizeof(Node));
     if (head == NULL) {
         return NULL; // Handle allocation failure
     }
-    head->data = p;
+    head->data = table;
     head->next = NULL;
     return head;
-}
-
-void print_list(Node* n) {
-    while (n != NULL) {
-        printf("%d ", n->data);
-        n = n->next;
-    }
-    printf("\n");
 }
 
 Node* get_tail(Node* n) {
@@ -32,7 +26,7 @@ Node* get_tail(Node* n) {
     return n;
 }
 
-void insert_at_pos(Node* n, int p, int m) {
+void insert_at_pos(Node* n, int p, ht* table) {
     if (p == 0) {
         fprintf(stderr, "Cannot insert at the beginning, use push().\n");
         return;
@@ -44,7 +38,7 @@ void insert_at_pos(Node* n, int p, int m) {
         fprintf(stderr, "Memory allocation failed.\n");
         return;
     }
-    current->data = m;
+    current->data = table;
 
     // Traverse to find the position just before where the new node will be inserted
     for (int i = 0; i < p; i++) {
@@ -72,25 +66,25 @@ void insert_at_pos(Node* n, int p, int m) {
 }
 
 
-void append(Node* n, int m) {
+void append(Node* n, ht* table) {
     Node* tail = get_tail(n);
     Node* current = (Node*) malloc(sizeof(Node));
     if (current == NULL) {
         fprintf(stderr, "Memory allocation failed.\n");
         return;
     }
-    current->data = m;
+    current->data = table;
     current->next = NULL;
     tail->next = current;
 }
 
-Node* push(Node* head, int m) {
+Node* push(Node* head, ht* table) {
     Node* current = (Node*) malloc(sizeof(Node));
     if (current == NULL) {
         fprintf(stderr, "Memory allocation failed.\n");
         return NULL;
     }
-    current->data = m;
+    current->data = table;
     current->next = head;
     return current;
 }

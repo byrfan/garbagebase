@@ -1,19 +1,16 @@
+#include "table.h"
+
 #ifndef HEADER_FILE
 #define HEADER_FILE
 
 typedef struct Node Node;
 
-struct Node {
-    int data;
-    Node* next;
-};
-
-Node* create_list(int p);
+Node* create_list(ht* table);
 void print_list(Node* n);
 Node* get_tail(Node* n);
-void insert_at_pos(Node* n, int p, int m);
-void append(Node* n, int m);
-Node* push(Node* n, int m);
+void insert_at_pos(Node* n, int p, ht* table);
+void append(Node* n, ht* table);
+Node* push(Node* n, ht* table);
 
 #endif /* HEADER_FILE */
 
