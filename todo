@@ -1,2 +1,0 @@
---  When using calloc to get the memory for the `hte` increase the length of the 
-    calloc call by one and set the last place in memory to NULL
