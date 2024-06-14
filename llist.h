@@ -1,9 +1,13 @@
 #include "table.h"
 
-#ifndef HEADER_FILE
-#define HEADER_FILE
+#ifndef LLIST
+#define LLIST
 
-typedef struct Node Node;
+
+typedef struct Node {
+    ht* data;
+    struct Node* next;
+} Node;
 
 Node* create_list(ht* table);
 void print_list(Node* n);

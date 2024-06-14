@@ -1,5 +1,5 @@
-#ifndef HEADER_FILE
-#define HEADER_FILE
+#ifndef TABLE
+#define TABLE
 
 // to silence microsoft
 #define strdup _strdup
@@ -8,8 +8,18 @@
 #define HT_DEFAULT_SIZE 5
 
 
-typedef struct hte hte;
-typedef struct ht ht;
+// element implementation
+typedef struct hte {
+    char* key;
+    char* value;
+} hte;
+
+// table implementation
+typedef struct ht {
+    int length;
+    int count;
+    hte** rows;
+} ht;
 
 unsigned int hash_djb2(char* str);
 ht* ht_init(int size);

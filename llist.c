@@ -3,11 +3,6 @@
 #include "table.h"
 #include "llist.h"
 
-typedef struct Node {
-    ht* data;
-    struct Node* next;
-} Node;
-
 Node* create_list(ht* table) {
     Node* head = (Node*) malloc(sizeof(Node));
     if (head == NULL) {

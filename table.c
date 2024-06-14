@@ -1,4 +1,4 @@
-#include <stdint.h>
+//#include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -6,18 +6,6 @@
 #include <stdio.h>
 #include "table.h"
 
-// element implementation
-typedef struct hte {
-    char* key;
-    char* value;
-} hte;
-
-// table implementation
-typedef struct ht {
-    int length;
-    int count;
-    hte** rows;
-} ht;
 
 // hash function
 unsigned int hash_djb2(char* str) {
