@@ -17,4 +17,3 @@ void append(Node* n, ht* table);
 Node* push(Node* n, ht* table);
 
 #endif /* HEADER_FILE */
-
